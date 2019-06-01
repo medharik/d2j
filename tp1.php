@@ -2,13 +2,14 @@
 $age=20;
 $name="Ghita";
 $gender="female";
-//
+
 $politesse=($gender=="male") ? "Mr":"Mme" ;
 if($gender=="male"){
 $color="skyblue";
 }else{
 $color="pink";
-}
+} 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
