@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-
+form>table>tr*3>td*2
 <form action="store.php" method="post">
     <table align="center">
         <tr>
