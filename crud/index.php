@@ -13,7 +13,9 @@ $produits=all("produit");
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
+<body >
+<?php include "_menu.php";?>
+
 <h2 class="text-center text-primary">liste des produits</h2>
  <table class="table table-dark">
      <tr>
@@ -30,8 +32,12 @@ $produits=all("produit");
          <td><?=$p['qtestock']?></td>
          <td><?=$p['prix']?></td>
          <td>
-         <a href="" class="btn btn-info">C</a>
-         <a href="" class="btn btn-danger">S</a>
+         <a href="show.php?id=<?=$p['id']?>" class="btn btn-info">Consulter</a>
+         <a href="#" class="btn btn-danger" onclick="return supprimer()">S</a>
+
+         <form action="delete.php" method="post" id="fdelete">
+         <input type="hidden" name="id" value="<?=$p['id']?>">
+         </form>
          <a href="" class="btn btn-warning">M</a>
          </td>
      </tr>
@@ -40,5 +46,17 @@ $produits=all("produit");
 
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
+<script>
+
+function supprimer(){
+  rep=  confirm("supprimer?");
+if(rep==true){
+document.getElementById('fdelete').submit()
+}
+
+else 
+return false;
+}
+</script>
 </body>
 </html>
